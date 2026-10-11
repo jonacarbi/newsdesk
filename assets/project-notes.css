@@ -1,0 +1,15 @@
+/* Static project summaries share the site's type and colour tokens. */
+.project-note__hero { display: grid; grid-template-columns: minmax(0, 1fr) minmax(160px, .35fr); gap: 48px; align-items: center; }
+.project-note__hero .eyebrow { margin-top: 48px; }
+.project-note__hero h1 { font-size: clamp(2.5rem, 7vw, 7rem); overflow-wrap: anywhere; }
+.project-note__mark { width: 100%; height: 100px; object-fit: contain; filter: invert(1); opacity: .85; }
+.project-note__body { display: grid; grid-template-columns: minmax(0, 1fr) minmax(240px, .6fr); gap: 48px; padding-block: 64px 100px; }
+.project-note__body h2 { font-size: var(--heading-md); margin-bottom: 24px; }
+.project-note__body p { color: var(--text-soft); font-size: var(--body-lg); max-width: 42ch; line-height: 1.6; }
+.project-note__body ul { padding-left: 1.25em; color: var(--text-soft); line-height: 1.7; }
+.project-note__body li + li { margin-top: 16px; }
+.project-note__body .button { justify-self: start; }
+@media (max-width: 700px) { .project-note__hero, .project-note__body { grid-template-columns: 1fr; gap: 32px; } .project-note__mark { max-width: 240px; height: 64px; object-position: left; } }
+
+.project-note__actions { grid-column: 1 / -1; display: flex; align-items: center; flex-wrap: wrap; gap: 24px; }
+.project-note__actions .project-note__source-note { flex-basis: 100%; max-width: 70ch; font-size: var(--body-sm, 1rem); }
