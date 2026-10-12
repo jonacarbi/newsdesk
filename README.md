@@ -1,21 +1,51 @@
-# NewsDesk — public project landing page
+# NewsDesk — landing page
 
-NewsDesk is a news reader with a local server, a native macOS app and a local web interface. It brings articles from news feeds into one overview.
+**Live:** [newsdesk-app.netlify.app](https://newsdesk-app.netlify.app/) · [English](https://newsdesk-app.netlify.app/en/)
 
-- [Live landing page (Dutch)](https://volnix.io/work/newsdesk)
-- [Live landing page (English)](https://volnix.io/en/work/newsdesk)
-- [VolNix](https://volnix.io)
+NewsDesk is a private news reader built by [VolNix](https://volnix.io). It collects headlines from RSS feeds, Google News, Reddit and Hacker News across six categories (tech, crypto, finance, sport, entertainment and politics). It then clusters differently worded headlines about the same story, so one story shows every outlet reporting it. It runs as a native macOS SwiftUI app with an in-app reader, alongside a browser dashboard, and includes a studio for drafting copy-ready posts per story.
 
 ## What this repository contains
 
-This is the source snapshot for the public NewsDesk landing page, not the operational application. `index.html` and `en/index.html` use reviewed public assets hosted on volnix.io. The project-specific stylesheet and vector mark are included under `assets/` for reference.
+The source of the public landing page only — not the application.
 
-The application, integrations, account configuration and operational data remain private. No Twitter/X credentials or integration code are included here. This repository is not an installer or a hosted news dashboard.
+```
+index.html          Dutch landing page (default)
+en/index.html       English landing page
+assets/newsdesk.css Styles: newsprint palette, night-edition dark mode
+assets/favicon.svg  NEWS/DESK mark from the app icon
+netlify.toml        Security headers and caching
+```
+
+The site is fully static: no JavaScript, no build step, no external fonts or requests. The interface visuals are illustrative HTML/CSS recreations with invented headlines, not screenshots.
+
+The application, its integrations, account configuration and data stay private. There is no download, installer or hosted dashboard.
 
 ## Local preview
 
-Run `python3 -m http.server 8080` from this directory, then open the local server in a browser. The pages load shared branding and navigation from the public VolNix site. No environment variables, API keys or account connections are required.
+```bash
+python3 -m http.server 8080
+```
+
+Then open `http://localhost:8080/` (Dutch) or `/en/` (English).
+
+## Deploy
+
+The site is a standalone Netlify project (`newsdesk-app`). It publishes this directory as-is:
+
+```bash
+netlify deploy --prod --dir . --site newsdesk-app
+```
+
+## Brand
+
+| Token | Value |
+|---|---|
+| Paper | `#f7f2e6` → `#e9e1cf` |
+| Ink | `#141414` |
+| Accent | `#b3261e` (DESK, active states) |
+| Display | New York / Iowan Old Style / Palatino / Georgia, bold |
+| Meta | system-ui |
 
 ## Maintenance
 
-The live pages are deployed through the VolNix website workflow. Update this reviewed snapshot only from approved public landing-page files. Do not copy files from the operational application into this repository.
+Only reviewed, public landing-page files belong here. Never copy code, configuration or data from the operational application into this repository.

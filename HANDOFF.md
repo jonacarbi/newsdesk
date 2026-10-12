@@ -6,23 +6,25 @@ _The block further down is regenerated automatically on every commit — edit on
 
 ## Purpose
 
-_What is this project and what problem does it solve?_
+Public landing page for NewsDesk (a private macOS news app by VolNix), served at https://newsdesk-app.netlify.app (NL at `/`, EN at `/en/`). The app itself is not in this repo.
 
 ## Current state
 
-_What works, what's in progress, what's broken._
+Static, zero-JS site: two HTML pages, one stylesheet, one SVG favicon. Deployed manually to the Netlify project `newsdesk-app`. volnix.io links here from its Partners section and 301-redirects its old `/work/newsdesk` pages here.
 
 ## Next steps / TODO
 
-- [ ] _..._
+- [ ] Optional: custom domain.
 
 ## Key decisions & gotchas
 
-_Architecture choices, non-obvious constraints, things that will bite the next person._
+- Strict CSP (`default-src 'none'`): no inline styles or scripts, no external requests.
+- Never publish app internals: local URLs/ports, file paths, env names, keys, model routing, account details or app data. Interface visuals are labelled CSS recreations with invented headlines.
+- Bump `?v=` on asset URLs when CSS or favicon changes.
 
 ## Where things live
 
-_Entry points, important modules, config, secrets location (not values)._
+`index.html`, `en/index.html`, `assets/newsdesk.css`, `assets/favicon.svg`, `netlify.toml` (headers). Deploy: `netlify deploy --prod --dir . --site newsdesk-app` from a clean copy without `.git`.
 
 ---
 
@@ -35,9 +37,9 @@ _Entry points, important modules, config, secrets location (not values)._
 
 - **Project:** `newsdesk-showcase`
 - **Branch:** `main`
-- **Last updated:** 2026-10-11 20:45:15 -03
-- **Built on commit:** (no commits yet)
-- **README says:** NewsDesk is a news reader with a local server, a native macOS app and a local web interface. It brings articles from news feeds into one overview.
+- **Last updated:** 2026-10-12 15:04:41 -03
+- **Built on commit:** 8c9afc9 — Publish reviewed NewsDesk landing-page source (jonacarbi, 2026-10-11)
+- **README says:** **Live:** [newsdesk-app.netlify.app](https://newsdesk-app.netlify.app/) · [English](https://newsdesk-app.netlify.app/en/)
 
 ## How to build / run / test
 
@@ -46,31 +48,36 @@ _No standard build manifest detected. Document run/build/test steps in the secti
 ## Project layout (top level)
 
 - .gitignore
-- HANDOFF.md
-- README.md
 - assets/
 - en/
+- HANDOFF.md
 - index.html
+- netlify.toml
+- README.md
 
 ## Languages
 
 - .md — 2 file(s)
 - .html — 2 file(s)
+- .toml — 1 file(s)
 - .svg — 1 file(s)
 - .css — 1 file(s)
 
 ## Changes in this commit
 
-- A	.gitignore
-- A	HANDOFF.md
-- A	README.md
-- A	assets/newsdesk.svg
-- A	assets/project-notes.css
-- A	en/index.html
-- A	index.html
+- M	.gitignore
+- M	HANDOFF.md
+- M	README.md
+- A	assets/favicon.svg
+- A	assets/newsdesk.css
+- D	assets/newsdesk.svg
+- D	assets/project-notes.css
+- M	en/index.html
+- M	index.html
+- A	netlify.toml
 
 ## Recent history
 
-- (no commits yet)
+- 8c9afc9 Publish reviewed NewsDesk landing-page source _(jonacarbi, 2026-10-11)_
 
 <!-- HANDOFF:AUTO:END -->
